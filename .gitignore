@@ -14,4 +14,7 @@
 artifacts
 
 # Visual Studio
-.vs/*
+.vs/
+
+# Don't think I need the properties folders
+**/Properties/

@@ -56,11 +56,11 @@ namespace MonoGame.Extended.TextureAtlases
                 Texture2D texture;
                 try
                 {
-                    texture = _contentManager.Load<Texture2D>(resolvedAssetName);
+                    texture = _contentManager.Load<Texture2D>($"{directory}/{textureName}");
                 }
                 catch (Exception ex) {
-                    if (textureDirectory == null || textureDirectory == "") 
-                        texture = _contentManager.Load<Texture2D>(textureName);
+                    if (textureDirectory == null || textureDirectory == "")                    
+                        texture = _contentManager.Load<Texture2D>(textureName);                    
                     else
                         texture = _contentManager.Load<Texture2D>(textureDirectory + "/" + textureName);
                 }

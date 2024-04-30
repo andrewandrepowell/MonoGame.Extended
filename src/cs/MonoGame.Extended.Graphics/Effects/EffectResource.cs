@@ -36,7 +36,7 @@ namespace MonoGame.Extended.Graphics.Effects
 
         static EffectResource()
         {
-            DetermineShaderExtension();
+            DetermineShaderExtension();            
         }
 
         private static void DetermineShaderExtension()
@@ -44,17 +44,18 @@ namespace MonoGame.Extended.Graphics.Effects
             // use reflection to figure out if Shader.Profile is OpenGL (0) or DirectX (1),
             // may need to be changed / fixed for future shader profiles
 
-            var assembly = typeof(Game).GetTypeInfo().Assembly;
-            Debug.Assert(assembly != null);
+            //var assembly = typeof(Game).GetTypeInfo().Assembly;
+            //Debug.Assert(assembly != null);
 
-            var shaderType = assembly.GetType("Microsoft.Xna.Framework.Graphics.Shader");
-            Debug.Assert(shaderType != null);
-            var shaderTypeInfo = shaderType.GetTypeInfo();
-            Debug.Assert(shaderTypeInfo != null);
+            //var shaderType = assembly.GetType("Microsoft.Xna.Framework.Graphics.Shader");
+            //Debug.Assert(shaderType != null);
+            //var shaderTypeInfo = shaderType.GetTypeInfo();
+            //Debug.Assert(shaderTypeInfo != null);
 
-            // https://github.com/MonoGame/MonoGame/blob/develop/MonoGame.Framework/Graphics/Shader/Shader.cs#L47
-            var profileProperty = shaderTypeInfo.GetDeclaredProperty("Profile");
-            var value = (int)profileProperty.GetValue(null);
+            //// https://github.com/MonoGame/MonoGame/blob/develop/MonoGame.Framework/Graphics/Shader/Shader.cs#L47
+            //var profileProperty = shaderTypeInfo.GetDeclaredProperty("Profile");
+            //var value = (int)profileProperty.GetValue(null);
+            int value = 0;
 
             switch (value)
             {
