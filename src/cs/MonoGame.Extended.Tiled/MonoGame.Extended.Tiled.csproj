@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="nkast.Xna.Framework.Blazor" Version="3.11.9003" />
+    <PackageReference Include="nkast.Xna.Framework.Blazor" Version="3.12.9001" />
   </ItemGroup>
 
   <ItemGroup>
