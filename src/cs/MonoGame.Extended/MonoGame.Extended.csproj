@@ -16,8 +16,8 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="nkast.Xna.Framework.Blazor" Version="3.12.9001" />
-    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline" Version="3.12.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Blazor" Version="3.13.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline" Version="3.13.9001" />
   </ItemGroup>
 
 </Project>

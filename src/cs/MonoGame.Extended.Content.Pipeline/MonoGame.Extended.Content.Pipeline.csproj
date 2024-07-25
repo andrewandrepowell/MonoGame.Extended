@@ -26,9 +26,9 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="8.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="nkast.Xna.Framework.Blazor" Version="3.12.9001" />
-    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline" Version="3.12.9001" />
-    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Graphics" Version="3.12.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Blazor" Version="3.13.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline" Version="3.13.9001" />
+    <PackageReference Include="nkast.Xna.Framework.Content.Pipeline.Graphics" Version="3.13.9001" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonoGame.Extended.Tiled\MonoGame.Extended.Tiled.csproj" />
