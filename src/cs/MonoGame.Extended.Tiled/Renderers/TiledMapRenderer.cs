@@ -45,12 +45,14 @@ namespace MonoGame.Extended.Tiled.Renderers
 
             for (var tilesetIndex = 0; tilesetIndex < _mapModel.Tilesets.Count; tilesetIndex++)
             {
-                foreach (var animatedTilesetTile in _mapModel.GetAnimatedTiles(tilesetIndex))
-                    animatedTilesetTile.Update(gameTime);
+                var animatedTilesetTiles = _mapModel.GetAnimatedTilesAsList(tilesetIndex);
+                for (var animatedTilesetTileIndex = 0; animatedTilesetTileIndex < animatedTilesetTiles.Count; animatedTilesetTileIndex++)                
+                    animatedTilesetTiles[animatedTilesetTileIndex].Update(gameTime);                                
             }
 
-            foreach(var layer in _mapModel.LayersOfLayerModels)
-                UpdateAnimatedLayerModels(layer.Value.OfType<TiledMapAnimatedLayerModel>());
+            foreach (var layer in _mapModel.LayersOfLayerModels)
+                if (layer.Value is TiledMapAnimatedLayerModel[] animatedLayerModel)
+                    UpdateAnimatedLayerModels(animatedLayerModel);
         }
 
         private static unsafe void UpdateAnimatedLayerModels(IEnumerable<TiledMapAnimatedLayerModel> animatedLayerModels)
