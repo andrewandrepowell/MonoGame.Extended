@@ -37,5 +37,10 @@ namespace MonoGame.Extended.Tiled.Renderers
             var tileset = _map.Tilesets[tilesetIndex];
             return _animatedTilesByTileset[tileset];
         }
+        public List<TiledMapTilesetAnimatedTile> GetAnimatedTilesAsList(int tilesetIndex)
+        {
+            var tileset = _map.Tilesets[tilesetIndex];
+            return _animatedTilesByTileset[tileset];
+        }
     }
 }
