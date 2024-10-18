@@ -103,13 +103,6 @@ namespace MonoGame.Extended.Collections
             var item = _instantiationFunction();
             if (item == null)
                 throw new NullReferenceException($"The created pooled object of type '{typeof(T).Name}' is null.");
-            item.PreviousNode = _tailNode;
-            item.NextNode = null;
-            if (_headNode == null)
-                _headNode = item;
-            if (_tailNode != null)
-                _tailNode.NextNode = item;
-            _tailNode = item;
             return item;
         }
 
@@ -143,13 +136,14 @@ namespace MonoGame.Extended.Collections
         private void Use(T item)
         {
             item.Initialize(_returnToPoolDelegate);
+
+            item.PreviousNode = _tailNode;
             item.NextNode = null;
-            if (item != _tailNode)
-            {
-                item.PreviousNode = _tailNode;
+            if (_headNode == null)
+                _headNode = item;
+            if (_tailNode != null)
                 _tailNode.NextNode = item;
-                _tailNode = item;
-            }
+            _tailNode = item;
 
             ItemUsed?.Invoke(item);
         }
