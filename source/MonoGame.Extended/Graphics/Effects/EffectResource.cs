@@ -32,7 +32,7 @@ namespace MonoGame.Extended.Graphics.Effects
         /// <summary>
         ///     Gets the <see cref="Effects.DefaultEffect" /> embedded into the MonoGame.Extended.Graphics library.
         /// </summary>
-        public static EffectResource DefaultEffect => _defaultEffect ?? (_defaultEffect = new EffectResource($"MonoGame.Extended.Graphics.Effects.Resources.DefaultEffect.{_shaderExtension}.mgfxo"));
+        public static EffectResource DefaultEffect => _defaultEffect ?? (_defaultEffect = new EffectResource($"KNI.Extended.Graphics.Effects.Resources.DefaultEffect.{_shaderExtension}.mgfxo"));
 
         static EffectResource()
         {
@@ -41,20 +41,9 @@ namespace MonoGame.Extended.Graphics.Effects
 
         private static void DetermineShaderExtension()
         {
-            // use reflection to figure out if Shader.Profile is OpenGL (0) or DirectX (1),
-            // may need to be changed / fixed for future shader profiles
-
-            var assembly = typeof(Game).GetTypeInfo().Assembly;
-            Debug.Assert(assembly != null);
-
-            var shaderType = assembly.GetType("Microsoft.Xna.Framework.Graphics.Shader");
-            Debug.Assert(shaderType != null);
-            var shaderTypeInfo = shaderType.GetTypeInfo();
-            Debug.Assert(shaderTypeInfo != null);
-
-            // https://github.com/MonoGame/MonoGame/blob/develop/MonoGame.Framework/Graphics/Shader/Shader.cs#L47
-            var profileProperty = shaderTypeInfo.GetDeclaredProperty("Profile");
-            var value = (int)profileProperty.GetValue(null);
+            // KNI doesn't have an equivalent profile property.
+            // Let's just assume open gl.
+            var value = 0;
 
             switch (value)
             {

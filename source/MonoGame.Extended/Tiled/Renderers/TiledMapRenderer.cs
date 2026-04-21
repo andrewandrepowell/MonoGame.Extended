@@ -171,6 +171,13 @@ namespace MonoGame.Extended.Tiled.Renderers
 					_graphicsDevice.Indices = layerModel.IndexBuffer;
 
                     // for each pass in our effect
+                    // The following is another hack to get tiled to work with KNI.
+                    // The current technique is forced to be 1, which is for textures.
+                    // This is necessary because OnApply (i.e. TiledMapEffect inherits from DefaultEffect)
+                    // changes the current technique to Techniques[1] for textures.
+                    // KNI doesn't like this, so we force the current technique to the one we want beforehand.
+                    var tme = (TiledMapEffect)effect1;
+                    tme.CurrentTechnique = tme.Techniques[1];
                     foreach (var pass in effect1.CurrentTechnique.Passes)
 					{
 						// apply the pass, effectively choosing which vertex shader and fragment (pixel) shader to use
